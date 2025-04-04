@@ -1,0 +1,184 @@
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu (master)
+$ git clone https://github.com/MateoSantar/OPP.git
+Cloning into 'OPP'...
+warning: You appear to have cloned an empty repository.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu (master)
+$ cd OPP/
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git push
+error: src refspec refs/heads/main does not match any
+error: failed to push some refs to 'https://github.com/MateoSantar/OPP.git'
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ nano
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git add .
+warning: in the working copy of 'testingText.txt', LF will be replaced by CRLF the next time Git touches it
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   testingText.txt
+
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git commit -m "testingText añadido"
+[main (root-commit) f5bbce4] testingText añadido
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testingText.txt
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 246 bytes | 246.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/MateoSantar/OPP.git
+ * [new branch]      main -> main
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git checkout -b nuevaBranch
+Switched to a new branch 'nuevaBranch'
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git status
+On branch nuevaBranch
+nothing to commit, working tree clean
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ nano
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git status
+On branch nuevaBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        NuevaBranch.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git add NuevaBranch.txt
+warning: in the working copy of 'NuevaBranch.txt', LF will be replaced by CRLF the next time Git touches it
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git commit -m "NuevaBranch.txt añadido"
+[nuevaBranch b61bbb3] NuevaBranch.txt añadido
+ 1 file changed, 1 insertion(+)
+ create mode 100644 NuevaBranch.txt
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git push
+fatal: The current branch nuevaBranch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin nuevaBranch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git status
+On branch nuevaBranch
+nothing to commit, working tree clean
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git merge
+fatal: No remote for the current branch.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git push -u NuevaBranch.txt
+fatal: invalid gitfile format: NuevaBranch.txt
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git push -u NuevaBranch
+fatal: 'NuevaBranch' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git push -u origin
+fatal: The current branch nuevaBranch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin nuevaBranch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git push -u origin nuevaBranch
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 324 bytes | 324.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'nuevaBranch' on GitHub by visiting:
+remote:      https://github.com/MateoSantar/OPP/pull/new/nuevaBranch
+remote:
+To https://github.com/MateoSantar/OPP.git
+ * [new branch]      nuevaBranch -> nuevaBranch
+branch 'nuevaBranch' set up to track 'origin/nuevaBranch'.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (nuevaBranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git git merge nuevaBranch
+git: 'git' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git merge nuevaBranch
+Updating f5bbce4..b61bbb3
+Fast-forward
+ NuevaBranch.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 NuevaBranch.txt
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$ git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/MateoSantar/OPP.git
+   f5bbce4..b61bbb3  main -> main
+
+Z3r0@LAPTOP-NP9PTRLQ MINGW64 ~/Desktop/Facu/OPP (main)
+$
