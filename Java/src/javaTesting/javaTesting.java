@@ -1,5 +1,5 @@
 package javaTesting;
-import classes.Character;
+import classes.*;
 import java.util.Scanner;
 
 public class javaTesting {
@@ -12,7 +12,14 @@ public class javaTesting {
         int hp = scanner.nextInt();
         System.out.print("Ingrese la vida de "+name+": ");
         int dmg = scanner.nextInt();
-        System.out.println("Personaje generado: "+new Character(name,hp,dmg));
+        System.out.println("Clases disponibles => (Default, Mago)");
+        String clase = scanner.next();
+        if(clase.toLowerCase().equalsIgnoreCase("mago")){
+            Mage mainChar = new Mage(name,hp,dmg);
+            mainChar.AddSpell(new Spell("FireBall",10,20));
+            System.out.println(mainChar.MagicAttack(5, 10, "FireBall"));
+        }
+        scanner.close();
     }
     
 }
