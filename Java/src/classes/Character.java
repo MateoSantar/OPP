@@ -10,6 +10,10 @@ public class Character {
         this.dmg = dmg;
     }
 
+    
+    public int Attack(int armor,int hp){
+        return ((dmg-armor) >= hp ) ? 0 : (hp-(dmg-armor)); 
+    }
     @Override
     public String toString() {
         return "Character{" + "name=" + name + ", hp=" + hp + ", dmg=" + dmg + '}';
