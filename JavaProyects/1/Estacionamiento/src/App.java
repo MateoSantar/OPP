@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        int option = -1;
+        String option;
         Scanner s = new Scanner(System.in);
 
         System.out.println("Bienvenido a mi sistema de estacionamiento!");
@@ -24,7 +24,8 @@ public class App {
                 System.out.println("3. Listar Registros.");
                 System.out.println("0. Salir");
                 System.out.print("Que desea hacer: ");
-                switch (s.nextLine()) {
+                option = s.nextLine();
+                switch (option) {
                     case "1":
                         InsertVehicle(est);
                         break;
@@ -40,7 +41,8 @@ public class App {
                         System.out.println("Ingrese una opcion valida.");
                         break;
                 }
-            } while (option != 0);
+                
+            } while (!"0".equals(option));
         } catch (NumberFormatException e) {
             System.err.println("No ha ingresado un valor valido");
         }

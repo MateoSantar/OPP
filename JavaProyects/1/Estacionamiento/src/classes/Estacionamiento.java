@@ -6,12 +6,10 @@ import java.util.Scanner;
 
 public class Estacionamiento {
 
-    private int cantDeLugares;
     private ArrayList<Lugar> lugares;
     private ArrayList<Registro> registros;
 
     public Estacionamiento(int cantDeLugares) {
-        this.cantDeLugares = cantDeLugares;
         this.lugares = new ArrayList<>(cantDeLugares);
         for (int i = 0; i < cantDeLugares; i++) {
             lugares.add(new Lugar(i + 1));
@@ -112,7 +110,5 @@ public class Estacionamiento {
 
     }
 
-    public ArrayList<Lugar> getLugares() {
-        return lugares;
-    }
+    
 }
