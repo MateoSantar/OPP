@@ -1,9 +1,10 @@
 package classes;
 
+import java.util.List;
+
 public class Lugar {
     private int id;
     private boolean ocupado;
-    private int horaDeOcupacion,horaDeRetiro;
     private Vehiculo vehiculo;
 
     public Lugar(int id) {
@@ -20,25 +21,6 @@ public class Lugar {
         this.ocupado = ocupado;
     }
 
-
-    public int getHoraDeOcupacion() {
-        return horaDeOcupacion;
-    }
-
-
-    public void setHoraDeOcupacion(int horaDeOcupacion) {
-        this.horaDeOcupacion = horaDeOcupacion;
-    }
-
-
-    public int getHoraDeRetiro() {
-        return horaDeRetiro;
-    }
-
-
-    public void setHoraDeRetiro(int horaDeRetiro) {
-        this.horaDeRetiro = horaDeRetiro;
-    }
 
 
 

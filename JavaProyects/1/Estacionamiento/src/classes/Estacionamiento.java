@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Estacionamiento {
+
     private int cantDeLugares;
     private ArrayList<Lugar> lugares;
+    private ArrayList<Registro> registros;
 
     public Estacionamiento(int cantDeLugares) {
         this.cantDeLugares = cantDeLugares;
@@ -14,6 +16,7 @@ public class Estacionamiento {
         for (int i = 0; i < cantDeLugares; i++) {
             lugares.add(new Lugar(i + 1));
         }
+        this.registros = new ArrayList<Registro>();
     }
 
     public void AsignarLugar(Vehiculo vehiculo) {
@@ -56,8 +59,8 @@ public class Estacionamiento {
 
             Lugar lugar = lugaresLibres.get(lugarSeleccionado);
             lugar.setOcupado(true);
-            lugar.setHoraDeOcupacion(horaDeOcupacion);
             lugar.setVehiculo(vehiculo);
+            registros.add(new Registro(horaDeOcupacion, vehiculo));
             System.out.println("Vehiculo " + vehiculo.getPatente() + " asignado al lugar " + lugarSeleccionado + " a las " + horaDeOcupacion + ":00.");
 
         } catch (NumberFormatException e) {
@@ -81,8 +84,12 @@ public class Estacionamiento {
                 }
                 vehiculoEncontrado = true;
                 lugar.setOcupado(false);
-                lugar.setHoraDeRetiro(horaDeRetiro);
                 lugar.setVehiculo(null);
+                for (Registro r : registros) {
+                    if (r.getVehiculo().equals(lugar.getVehiculo())) {
+                        r.setHoraDeRetiro(horaDeRetiro);
+                    }
+                }
                 System.out.println("Vehiculo " + patente + " retirado del lugar " + lugar.getId() + " a las " + horaDeRetiro + ":00.");
                 break;
             }
@@ -90,6 +97,17 @@ public class Estacionamiento {
 
         if (!vehiculoEncontrado) {
             System.out.println("Vehiculo no encontrado.");
+        }
+
+    }
+
+    public void ShowRegistros() {
+        if (registros.isEmpty()) {
+            System.out.println("No hay registros");
+        } else {
+            for (Registro r : registros) {
+                System.out.println(r.toString());
+            }
         }
 
     }
