@@ -87,7 +87,7 @@ public class Estacionamiento {
                 lugar.setVehiculo(null);
                 for (Registro r : registros) {
                     if (r.getVehiculo().equals(lugar.getVehiculo())) {
-                        r.setHoraDeRetiro(horaDeRetiro);
+                        r.setHoradeRetiro(horaDeRetiro);
                     }
                 }
                 System.out.println("Vehiculo " + patente + " retirado del lugar " + lugar.getId() + " a las " + horaDeRetiro + ":00.");

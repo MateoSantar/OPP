@@ -2,7 +2,7 @@ package classes;
 
 
 public class Registro {
-    private int horaDeRetiro,horadeEntrada;
+    private int horadeRetiro,horadeEntrada;
     private Vehiculo vehiculo;
 
     public Registro(int horadeEntrada, Vehiculo vehiculo) {
@@ -10,8 +10,8 @@ public class Registro {
         this.vehiculo = vehiculo;
     }
 
-    public int getHoraDeRetiro() {
-        return horaDeRetiro;
+    public int getHoradeRetiro() {
+        return horadeRetiro;
     }
 
     public int getHoradeEntrada() {
@@ -22,8 +22,8 @@ public class Registro {
         return vehiculo;
     }
 
-    public void setHoraDeRetiro(int horaDeRetiro) {
-        this.horaDeRetiro = horaDeRetiro;
+    public void setHoradeRetiro(int horaDeRetiro) {
+        this.horadeRetiro = horaDeRetiro;
     }
 
     public void setHoradeEntrada(int horadeEntrada) {
@@ -36,8 +36,8 @@ public class Registro {
 
     @Override
     public String toString() {
-        if (horaDeRetiro != 0) {
-            return "Vehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + "\nHora de Entrada = " +horadeEntrada+"\nHora de Retiro = "+horaDeRetiro;
+        if (horadeRetiro != 0) {
+            return "Vehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + "\nHora de Entrada = " +horadeEntrada+"\nHora de Retiro = "+horadeRetiro;
         }
             return "Vehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + "\nHora de Entrada = " +horadeEntrada+"\nVehiculo no retirado";
     }
