@@ -58,7 +58,7 @@ public class Estacionamiento {
             Lugar lugar = lugaresLibres.get(lugarSeleccionado);
             lugar.setOcupado(true);
             lugar.setVehiculo(vehiculo);
-            registros.add(new Registro(horaDeOcupacion, vehiculo));
+            registros.add(new Registro(horaDeOcupacion, vehiculo,lugar));
             System.out.println("Vehiculo " + vehiculo.getPatente() + " asignado al lugar " + lugarSeleccionado + " a las " + horaDeOcupacion + ":00.");
 
         } catch (NumberFormatException e) {
@@ -82,13 +82,13 @@ public class Estacionamiento {
                 }
                 vehiculoEncontrado = true;
                 lugar.setOcupado(false);
-                lugar.setVehiculo(null);
                 for (Registro r : registros) {
                     if (r.getVehiculo().equals(lugar.getVehiculo())) {
                         r.setHoradeRetiro(horaDeRetiro);
+                        System.out.println("Vehiculo " + patente + " retirado del lugar " + lugar.getId() + " a las " + horaDeRetiro + ":00.");
+                        lugar.setVehiculo(null);
                     }
                 }
-                System.out.println("Vehiculo " + patente + " retirado del lugar " + lugar.getId() + " a las " + horaDeRetiro + ":00.");
                 break;
             }
         }
@@ -109,6 +109,17 @@ public class Estacionamiento {
         }
 
     }
+
+    public ArrayList<Lugar> getLugares() {
+        return lugares;
+    }
+
+    public ArrayList<Registro> getRegistros() {
+        return registros;
+    }
+
+
+    
 
     
 }

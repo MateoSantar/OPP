@@ -1,6 +1,11 @@
 
 import classes.Estacionamiento;
+import classes.Registro;
 import classes.Vehiculo;
+
+import java.rmi.registry.Registry;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -34,6 +39,7 @@ public class App {
                         break;
                     case "3":
                         ShowRegisters(est);
+                        break;
                     case "0":
                         System.out.println("Adios!");
                         break;
@@ -41,7 +47,7 @@ public class App {
                         System.out.println("Ingrese una opcion valida.");
                         break;
                 }
-                
+                s.nextLine();
             } while (!"0".equals(option));
         } catch (NumberFormatException e) {
             System.err.println("No ha ingresado un valor valido");
@@ -59,10 +65,25 @@ public class App {
     }
 
     private static void RetireVehicle(Estacionamiento est) {
-        Scanner s = new Scanner(System.in);
-        System.out.print("Ingrese la patente del vehiculo: ");
-        String patenteBuscada = s.nextLine();
-        est.RetirarVehiculo(patenteBuscada);
+        boolean registersExist = false;
+        ArrayList<Registro> lugaresARetirar = new ArrayList<>();
+        for (Registro r : est.getRegistros()) {
+            if (r.getHoradeRetiro() == 0) {
+                registersExist = true;
+                lugaresARetirar.add(r);
+            }
+        }
+        if (registersExist) {
+            Scanner s = new Scanner(System.in);
+            for (Registro r : lugaresARetirar) {
+                System.out.println(r);
+            }
+            System.out.print("Ingrese la patente del vehiculo: ");
+            String patenteBuscada = s.nextLine();
+            est.RetirarVehiculo(patenteBuscada);
+        }else{
+            System.out.println("No hay vehiculos para retirar");
+        }
     }
     
     private static void ShowRegisters(Estacionamiento est){
