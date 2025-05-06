@@ -1,6 +1,5 @@
 package classes;
 
-import java.util.List;
 
 public class Lugar {
     private int id;

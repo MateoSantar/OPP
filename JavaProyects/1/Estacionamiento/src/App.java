@@ -1,11 +1,6 @@
 
-import classes.Estacionamiento;
-import classes.Registro;
-import classes.Vehiculo;
-
-import java.rmi.registry.Registry;
+import classes.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -61,6 +56,18 @@ public class App {
         String patente = s.nextLine();
         System.out.print("Ingrese el telefono del propietario: ");
         String telefono = s.nextLine();
+        System.out.println("Es una camioneta? (y/n): ");
+        String esCamioneta = s.nextLine();
+        if (esCamioneta.equalsIgnoreCase("y")) {
+            System.out.println("La camioneta tiene caja cerrada? (y/n): ");
+            String cajaCerrada = s.nextLine();
+            boolean caja = false;
+            if (cajaCerrada.equalsIgnoreCase("y")) {
+                caja = true;
+            }
+            est.AsignarLugar(new Camioneta(patente, telefono, caja));
+            return;
+        }
         est.AsignarLugar(new Vehiculo(patente, telefono));
     }
 

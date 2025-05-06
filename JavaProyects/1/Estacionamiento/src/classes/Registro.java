@@ -42,10 +42,19 @@ public class Registro {
 
     @Override
     public String toString() {
-        if (horadeRetiro != 0) {
+        if (horadeRetiro != 0 && vehiculo.getClass() != Camioneta.class) {
             return "Lugar: "+lugar.getId()+"\nVehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + " Hora de Entrada = " +horadeEntrada+" Hora de Retiro = "+horadeRetiro;
         }
-            return "Lugar: "+lugar.getId()+"\nVehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + " Hora de Entrada = " +horadeEntrada+" Vehiculo no retirado";
+        if (horadeRetiro != 0 && vehiculo.getClass() == Camioneta.class) {
+            Camioneta camioneta = (Camioneta) vehiculo;
+            return "Lugar: "+lugar.getId()+"\nVehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + " Hora de Entrada = " +horadeEntrada+" Hora de Retiro = "+horadeRetiro+" | Caja Cerrada: "+(camioneta.isCajaCerrada() ? "Si":"No");
+        }
+        if (horadeRetiro == 0 && vehiculo.getClass() == Camioneta.class) {
+            Camioneta camioneta = (Camioneta) vehiculo;
+            return "Lugar: "+lugar.getId()+"\nVehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + " Hora de Entrada = " +horadeEntrada+" | Caja Cerrada: "+(camioneta.isCajaCerrada() ? "Si":"No")+" | Vehiculo no retirado";
+            
+        }
+        return "Lugar: "+lugar.getId()+"\nVehiculo: " + vehiculo.getPatente() + " | "+ vehiculo.getTelefono() + " Hora de Entrada = " +horadeEntrada+" Vehiculo no retirado";
     }
     
     
